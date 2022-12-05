@@ -12,8 +12,8 @@ public class Cartero {
 
     public Cartero(String DNI, String nombre, String apellidos) {
         this.DNI = DNI;
-        this.nomobre = nombre;
-        this.apellidos = apellidos
+        this.nombre = nombre;
+        this.apellidos = apellidos;
     }
 
     public String getDNI() {
@@ -21,7 +21,7 @@ public class Cartero {
     }
 
     public String getNombre() {
-        return this.name;
+        return this.nombre;
     }
 
     public String getApellidos() {
