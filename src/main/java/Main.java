@@ -1,7 +1,6 @@
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
-import expresscorreos.model.Dragon;
+import expresscorreos.model.Cartero;
 
 public class Main {
     // @TODO: Sustituya xxxx por los parámetros de su conexión
@@ -18,8 +17,6 @@ public class Main {
 
     private static Connection conn;
 
-
-
     public static void main(String[] args) throws Exception {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -29,40 +26,41 @@ public class Main {
 
         // @TODO pruebe sus funciones
 
-
-
         conn.close();
     }
 
     // @TODO resuelva las siguientes funciones...
 
-    public static void nuevo_cartero(String DNI, String nombre, String apellidos){
+    public static void nuevoCartero(String DNI, String nombre, String apellidos) {
         // @TODO: complete este método para que cree un nuevo cartero en la base de datos
 
     }
 
-    public static List<Cartero> carteros_reparto_coche_periodo(Int periodo){
-        // @TODO: complete este método para que muestre por pantalla una lista de carteros que han 
-        // realizado un reparto con coche en el periodo comprendido por los últimos "periodo" días 
+    public static List<Cartero> carterosRepartoCochePeriodo(int periodo) {
+        // @TODO: complete este método para que muestre por pantalla una lista de carteros que han
+        // realizado un reparto con coche en el periodo comprendido por los últimos "periodo" días
         // (implementar para periodo=7)
         // Tenga en cuenta que la consulta a la base de datos le devolverá un ResultSet sobre el que deberá
-        // ir iterando y creando un objeto con cada Cartero que cumpla con las condiciones, 
+        // ir iterando y creando un objeto con cada Cartero que cumpla con las condiciones,
         // y añadirlos a la lista
+
         return lista;
     }
 
-    public static List<Oficina> oficinas_asociadas_calle(String nombre_valle){
-        // @TODO: complete este método para que muestre por pantalla una lista de las oficinas que 
+    public static List<Oficina> oficinasAsociadasCalle(String calle) {
+        // @TODO: complete este método para que muestre por pantalla una lista de las oficinas que
         // dan servicio a la C/Alcalá de Madrid.
         // Tenga en cuenta que la consulta a la base de datos le devolverá un ResultSet sobre el que deberá
-        // ir iterando y creando un objeto con cada Oficina que tenga asociada algún segmento de esa calle, 
+        // ir iterando y creando un objeto con cada Oficina que tenga asociada algún segmento de esa calle,
         // y añadirlos a la lista
+
         return lista;
     }
 
-    public static String coches_sin_utilizar_periodo(Int periodo){
+    public static String cochesSinUtilizarPeriodo(int periodo) {
         // @TODO: complete este método para que muestre por pantalla una lista de los coches que no se han
         // utilizado en los últimos "periodo" días (implementar para periodo=30)
+
         return lista;
     }
 
