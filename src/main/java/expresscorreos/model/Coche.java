@@ -46,4 +46,11 @@ public class Coche {
     public void setCodO(int codO) {
         this.codO = codO;
     }
+
+    @Override
+    public String toString() {
+        return "Coche{" +
+                "matricula='" + matricula + '\'' +
+                '}';
+    }
 }

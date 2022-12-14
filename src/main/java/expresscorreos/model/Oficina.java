@@ -21,6 +21,9 @@ public class Oficina {
         this.portal = -1;
         this.nombre_calle = "";
     }
+    public Oficina(int codO){
+        this.setCodO(codO);
+    }
     public Oficina(int codO, int codCDC, String nomMun, int numero, int piso, char letra,int portal, String nombre_calle){
         this.setCodO(codO);
         this.setCodCDC(codCDC);
