@@ -49,11 +49,11 @@ public class Main {
         ResultSet rs = null;
         try {
             stmt = conn.createStatement();
-            if(stmt.execute("INSERT INTO practicabbdd.cartero VALUES ("+DNI+","+nombre+","+apellidos+");"))
+            if(stmt.execute("INSERT INTO cartero VALUES ("+DNI+","+nombre+","+apellidos+");"))
                 rs = stmt.getResultSet();
 
 
-        }catch (SQLException e) {
+        }catch (SQLException e) { System.out.println("Error al insertar");
         }
 
 
