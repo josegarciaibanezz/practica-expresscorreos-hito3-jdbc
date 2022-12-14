@@ -1,19 +1,24 @@
 import java.sql.*;
+import java.util.LinkedList;
 import java.util.List;
 import expresscorreos.model.Cartero;
+import expresscorreos.model.Coche;
+import expresscorreos.model.Oficina;
+
+import javax.swing.plaf.SliderUI;
 
 public class Main {
     // @TODO: Sustituya xxxx por los parámetros de su conexión
 
-    private static final String DB_SERVER = "xxxx";
+    private static final String DB_SERVER = "127.0.0.2";
 
-    private static final int DB_PORT = xxxx;
+    private static final int DB_PORT = 3306;
 
-    private static final String DB_NAME = "xxxx";
+    private static final String DB_NAME = "practicabbdd";
 
-    private static final String DB_USER = "xxxx";
+    private static final String DB_USER = "root";
 
-    private static final String DB_PASS = "xxxx";
+    private static final String DB_PASS = "root";
 
     private static Connection conn;
 
@@ -24,6 +29,13 @@ public class Main {
         String url = "jdbc:mysql://" + DB_SERVER + ":" + DB_PORT + "/" + DB_NAME;
         conn = DriverManager.getConnection(url, DB_USER, DB_PASS);
 
+        nuevoCartero("50564673R","Troski","Lapices");
+
+
+
+
+
+
         // @TODO pruebe sus funciones
 
         conn.close();
@@ -31,8 +43,20 @@ public class Main {
 
     // @TODO resuelva las siguientes funciones...
 
-    public static void nuevoCartero(String DNI, String nombre, String apellidos) {
+    public static void nuevoCartero(String DNI, String nombre, String apellidos) throws SQLException {
         // @TODO: complete este método para que cree un nuevo cartero en la base de datos
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = conn.createStatement();
+            if(stmt.execute("INSERT INTO practicabbdd.cartero VALUES ("+DNI+","+nombre+","+apellidos+");"))
+                rs = stmt.getResultSet();
+
+
+        }catch (SQLException e) {
+        }
+
+
 
     }
 
@@ -43,8 +67,9 @@ public class Main {
         // Tenga en cuenta que la consulta a la base de datos le devolverá un ResultSet sobre el que deberá
         // ir iterando y creando un objeto con cada Cartero que cumpla con las condiciones,
         // y añadirlos a la lista
+        List <Cartero> carteros = new LinkedList<>();
 
-        return lista;
+        return carteros;
     }
 
     public static List<Oficina> oficinasAsociadasCalle(String calle) {
@@ -53,15 +78,18 @@ public class Main {
         // Tenga en cuenta que la consulta a la base de datos le devolverá un ResultSet sobre el que deberá
         // ir iterando y creando un objeto con cada Oficina que tenga asociada algún segmento de esa calle,
         // y añadirlos a la lista
+        List <Oficina> oficinas = new LinkedList<>();
 
-        return lista;
+        return oficinas;
     }
 
     public static String cochesSinUtilizarPeriodo(int periodo) {
         // @TODO: complete este método para que muestre por pantalla una lista de los coches que no se han
         // utilizado en los últimos "periodo" días (implementar para periodo=30)
+        List<Coche> lista_coches = new LinkedList<>();
+        String coches = "";
 
-        return lista;
+        return coches;
     }
 
 }
