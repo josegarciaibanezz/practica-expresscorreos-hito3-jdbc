@@ -29,6 +29,7 @@ public class Main {
         String url = "jdbc:mysql://" + DB_SERVER + ":" + DB_PORT + "/" + DB_NAME;
         conn = DriverManager.getConnection(url, DB_USER, DB_PASS);
 
+
         nuevoCartero("50564673R","Troski","Lapices");
 
 
@@ -44,13 +45,18 @@ public class Main {
     // @TODO resuelva las siguientes funciones...
 
     public static void nuevoCartero(String DNI, String nombre, String apellidos) throws SQLException {
-        // @TODO: complete este método para que cree un nuevo cartero en la base de datos
-        Statement stmt = null;
+        // @TODO: complete este método para que cree un nuevo cartero en la base de datosç
         ResultSet rs = null;
+
         try {
-            stmt = conn.createStatement();
-            if(stmt.execute("INSERT INTO cartero VALUES ("+DNI+","+nombre+","+apellidos+");"))
-                rs = stmt.getResultSet();
+
+            PreparedStatement stmt = conn.prepareStatement("INSERT INTO cartero (dni,apellidos,nombre) VALUES (?, ?, ?)");
+            stmt.setString(1,DNI);
+            stmt.setString(2,apellidos);
+            stmt.setString(3,nombre);
+            stmt.executeUpdate();
+
+
 
 
         }catch (SQLException e) { System.out.println("Error al insertar");
